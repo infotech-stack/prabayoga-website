@@ -1,0 +1,17 @@
+/*
+ * Praba Yoga – CSS entry point.
+ * Compiled to assets/css/main.css by:  npm run build:css
+ *
+ * Structure
+ *   base.css                  → resets, global typography, accessibility defaults
+ *   components/navigation.css → header / mobile menu / skip-link helpers
+ *   components/forms.css      → shared form-state helpers
+ * Everything else is Tailwind utilities (design tokens live in tailwind.config.js).
+ */
+@import "./base.css";
+@import "./components/navigation.css";
+@import "./components/forms.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,54 @@
+/* Global defaults. Loaded before Tailwind's layers are emitted. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    overscroll-behavior: none;
+    /* Safety net: decorative blurred shapes/SVGs must never create sideways scrolling */
+    overflow-x: clip;
+  }
+
+  /* Section anchors (#curriculum, #faq …) must clear the sticky header */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+
+  /* Keep long words / uppercase headings from pushing the layout wider than the screen */
+  h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+  p, li {
+    overflow-wrap: break-word;
+  }
+  p {
+    text-wrap: pretty;
+  }
+
+  img, svg, video {
+    max-width: 100%;
+  }
+
+  main > :first-child { margin-top: 0 !important; }
+  main > :last-child  { margin-bottom: 0 !important; }
+
+  /* Visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid theme("colors.primary");
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

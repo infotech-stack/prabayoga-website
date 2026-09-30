@@ -1,0 +1,39 @@
+@layer components {
+  /* Reserve the header's height before JS injects it → no layout jump on load */
+  #site-header:empty {
+    min-height: 4rem;
+    background-color: theme("colors.surface");
+    border-bottom: 1px solid #e8e6df;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    padding: 0.625rem 1rem;
+    border-radius: theme("borderRadius.lg");
+    background-color: theme("colors.primary");
+    color: theme("colors.on-primary");
+    font-size: 0.875rem;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* Mobile menu */
+  .mobile-menu:not([hidden]) {
+    animation: menu-in 0.18s ease-out;
+  }
+  @keyframes menu-in {
+    from { opacity: 0; transform: translateY(-0.5rem); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Lock page scroll while the mobile menu or a modal is open */
+  html.is-locked,
+  html.is-locked body {
+    overflow: hidden;
+  }
+}

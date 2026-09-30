@@ -1,0 +1,10 @@
+@layer components {
+  /* iOS zooms into inputs below 16px – keep form controls at 16px on phones */
+  @media (max-width: 639px) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      font-size: 1rem;
+    }
+  }
+}
